@@ -6,6 +6,11 @@ const PersonSchema = new Schema({
         required: true,
         trim: true
     },
+    lastName: {
+        type: String,
+        required: true,
+        trim: true
+    },
     residence:{
         type: String,
         required: true,
@@ -28,6 +33,14 @@ const PersonSchema = new Schema({
     sex: {
         type: String,
         required: true,
+        trim: true
+    },
+    contact:{
+        type: String,
+        trim: true
+    },
+    image:{
+        type: String,
         trim: true
     }
 })
