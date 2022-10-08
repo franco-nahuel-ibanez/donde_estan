@@ -1,12 +1,9 @@
-const { connect } = require('mongoose')
+const { Sequelize } = require('sequelize');
 
-const connectDB = async () => {
-    try {
-        await connect('mongodb://localhost/donde_estan_db')
-        console.log('### MongoDB Connected ###')
-    } catch (error) {
-        console.log('Failed Connecting to MongoBD', error)
-    }
-}
+const sequelize = new Sequelize('donde_estan_db', 'root', '123456', {
+    host: 'localhost',
+    dialect: 'mysql',
+});
 
-module.exports = connectDB
+
+module.exports = sequelize;

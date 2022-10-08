@@ -1,9 +1,12 @@
 const express = require('express')
-const connectDB = require('./config/db')
+const sequelize = require('./config/db')
 const error404 = require('./middleware/errorNotFound')
 const path = require('path')
 
-connectDB()
+sequelize.authenticate()
+    .then(() => console.log('Connection has been established successfully.'))
+    .catch(error => console.log('Unable to connect to the database:', error));
+
 const app = express()
 
 app.use(express.static(path.join(__dirname, 'public')))

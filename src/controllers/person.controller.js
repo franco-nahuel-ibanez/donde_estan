@@ -4,8 +4,8 @@ const path = require('path')
 
 const getAll = async (req, res) => {
     try {
-        const data = await Person.find()
-        res.status(200).json({ok: true, data})
+        //const data = await Person.find()
+        res.status(200).json({ok: true, data:'data'})
     } catch (error) {
         console.log(error)
     }
