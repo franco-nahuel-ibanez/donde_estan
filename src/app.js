@@ -3,8 +3,8 @@ const sequelize = require('./config/db')
 const error404 = require('./middleware/errorNotFound')
 const path = require('path')
 
-sequelize.authenticate()
-    .then(() => console.log('Connection has been established successfully.'))
+sequelize.sync()
+    .then(() => console.log('DB connected'))
     .catch(error => console.log('Unable to connect to the database:', error));
 
 const app = express()

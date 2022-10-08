@@ -1,48 +1,58 @@
-const {Schema, model} = require('mongoose')
+const { DataTypes } = require('sequelize')
+const sequelize = require('../config/db')
 
-const PersonSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    lastName: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    residence:{
-        type: String,
-        required: true,
-        trim: true
-    },
-    date: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    description:{
-        type: String,
-        trim: true,
-        maxlength: 500
-    },
-    age: {
-        type: String,
-        required: true
-    },
-    sex: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    contact:{
-        type: String,
-        trim: true
-    },
-    image:{
-        type: String,
-        trim: true
-    }
+const Person = sequelize.define('Person', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  residence: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  date: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  
+  age: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+
+  sex: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  contact: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
 })
 
-module.exports = model('Persons', PersonSchema)
+module.exports = Person
+
